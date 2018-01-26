@@ -1,4 +1,4 @@
-f __name__ == '__main__':
+if __name__ == '__main__':
     some_list = []
     for _ in range(int(input())):
         name = input()
@@ -20,3 +20,5 @@ f __name__ == '__main__':
     names.sort()                             #sort the list called "names"
     for i in names:
         print(i)
+
+

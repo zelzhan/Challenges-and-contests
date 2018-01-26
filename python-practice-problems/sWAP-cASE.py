@@ -1,4 +1,4 @@
-wap_case(s):
+def swap_case(s):
     string = ""                 #empty string
     for i in s:                 #iterate each character in string
         if(i == i.lower()):     #checking whether the character is equal to the lowercase of this character

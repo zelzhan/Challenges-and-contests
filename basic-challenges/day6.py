@@ -1,4 +1,4 @@
- = int(input())
+a = int(input())
 some_list = []                                                      #creation of lists
 second_list = []
 third_list = []
