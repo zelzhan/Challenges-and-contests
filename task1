@@ -1,0 +1,60 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the solve function below.
+def solve(reservations):
+    starts = []
+    ends = []
+    for reservation in reservations:
+        # dates[int(reservation[0].replace("-", ""))] = int(reservation[1].replace("-", "")) 
+        starts.append(int(reservation[0].replace("-", "")))
+        ends.append(int(reservation[1].replace("-", "")))
+    max_busy = 1
+    current_busy = 1
+    goal = starts[0]
+    start_counter = 1
+    ends_counter = 0
+    
+    starts.sort()
+    ends.sort()
+    while(True):
+        if starts[start_counter] <= ends[ends_counter]:
+            current_busy+=1
+            if current_busy > max_busy:
+                max_busy = current_busy
+                goal = starts[start_counter]
+            start_counter+=1
+        else:
+            current_busy-=1
+            ends_counter+=1
+        if start_counter == len(starts) or ends_counter == len(starts):
+            break
+    goal = str(goal)
+    goal = goal[:4] + '-' + goal[4:6] + '-' + goal[6:8] 
+    return goal
+    
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        n = int(input().strip())
+
+        reservations = []
+
+        for _ in range(n):
+            reservations.append(input().rstrip().split())
+
+        result = solve(reservations)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+
