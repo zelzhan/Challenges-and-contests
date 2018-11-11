@@ -57,14 +57,3 @@ class Solution:
                 low2 +=3
                 up2 +=3
         return True
-
-            
-                
-            
-            
-        
-        
-        
-        
-        
-        
