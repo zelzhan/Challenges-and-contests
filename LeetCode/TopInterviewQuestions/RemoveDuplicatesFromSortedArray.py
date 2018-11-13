@@ -20,3 +20,26 @@ class Solution(object):
                 del nums[i]
         return length
         
+# ================================================
+# Follow-up
+class Solution(object):
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) < 2:
+            return len(nums)
+
+        fast, slow = 0, 0
+        while fast+1 != len(nums):
+            if nums[fast+1] != nums[fast]:
+                nums[slow] = nums[fast]
+                slow+=1
+            fast+=1
+            if nums[fast] == nums[-1] and nums[fast] != nums[fast-1]:
+                nums[slow] = nums[fast]
+                slow+=1
+                break
+        if fast != 0 and slow == 0: return slow +1
+        return slow 
