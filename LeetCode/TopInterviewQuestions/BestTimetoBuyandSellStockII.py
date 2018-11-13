@@ -34,3 +34,20 @@ class Solution(object):
                 buy = True
                 
         return result
+
+    #=================================
+    # Follow-up
+    class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        res = 0
+        for i in range(len(prices)):
+            if i + 1 == len(prices):
+                break
+            if prices[i+1]>prices[i]:
+                res+=prices[i+1] - prices[i]
+        return res
+            
