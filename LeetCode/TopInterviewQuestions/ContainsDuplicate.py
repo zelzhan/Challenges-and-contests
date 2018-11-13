@@ -23,3 +23,21 @@ class Solution:
                 dictionary[nums[i]] = 1
         return False
         
+# follow-up
+from collections import defaultdict
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        hashset = defaultdict(int)
+        for i in range(len(nums)):
+            hashset[nums[i]] = i
+            
+        for j in range(len(nums)):
+            temp = target-nums[j]
+            if temp in hashset and j != hashset[target-nums[j]]:
+                return [j, hashset[target-nums[j]]]
+        
